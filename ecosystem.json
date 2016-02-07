@@ -30,7 +30,7 @@
    */
   deploy : {
     production : {
-      user : "root",
+      user : "ubuntu",
       host : "52.36.39.70",
       ref  : "origin/master",
       repo : "git@github.com:jayoharedee/downtime.git",
