@@ -1,52 +1,39 @@
 {
-  /**
-   * Application configuration section
-   * http://pm2.keymetrics.io/docs/usage/application-declaration/
-   */
-  apps : [
 
-    // First application
+“apps” : [
     {
-      name      : "downtime",
-      script    : "www",
-      env: {
-        COMMON_VARIABLE: "true"
+      “name”      : “downtime”,
+      “script”    : “www”,
+      “env”: {
+        “COMMON_VARIABLE”: “true”
       },
-      env_production : {
-        NODE_ENV: "production"
+      “env_production” : {
+        “NODE_ENV”: “production”
       }
-    },
-   /*
-    // Second application
-    {
-      name      : "WEB",
-      script    : "web.js"
-    }*/
-  ],
+    }
 
-  /**
-   * Deployment section
-   * http://pm2.keymetrics.io/docs/usage/deployment/
-   */
-  deploy : {
-    production : {
-      user : "ubuntu",
-      host : "52.36.39.70",
-      ref  : "origin/master",
-      repo : "git@github.com:jayoharedee/express-boiler.git",
-      path : "/var/www/downtime",
-      "post-deploy" : "npm install ; npm test ; gulp ;  pm2 startOrRestart ecosystem.json --env production"
+],
+
+“deploy” : {
+    “production” : {
+      “user” : “node”,
+      “host” : “52.36.39.70”,
+      “port” : “3636”,
+      “key” : “/Users/dev/.ssh/id_rsa”,
+      “ref”  : “origin/master”,
+      “repo” : "git@github.com:jayoharedee/downtime.git",
+      “path” : “/var/www/downtime”,
+      “post-deploy” : “npm install —production && pm2 startOrRestart ecosystem.json —env production”
     },
-    dev : {
-      user : "node",
-      host : "212.83.163.1",
-      ref  : "origin/development",
-      repo : "git@github.com:jayoharedee/express-boiler.git",
-      path : "/Users/dev/dev/downtime",
-      "post-deploy" : "npm install ; npm test ; gulp ;  pm2 startOrRestart ecosystem.json --env dev",
-      env  : {
-        NODE_ENV: "dev"
-      }
+    “dev” : {
+      “user” : “node”,
+      “host” : “127.0.0.1”,
+      “port” : “1818”,
+      “key” : “/Users/dev/.ssh/id_rsa”,
+      “ref”  : “origin/master”,
+      “repo” : “git@github.com:jayoharedee/downtime.git”,
+      “path” : “/Users/dev/dev/sand/downtime”,
+      “post-deploy” : “npm install —production && pm2 startOrRestart ecosystem.json —env dev”
     }
   }
 }
