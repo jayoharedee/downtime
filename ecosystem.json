@@ -8,9 +8,9 @@
 
     // First application
     {
-      name      : "downtime",
-      script    : "bin/www",
-      env: {
+      "name"      : "downtime",
+      "script"    : "bin/www",
+      "env": {
         COMMON_VARIABLE: "true"
       },
       env_production : {
@@ -23,23 +23,23 @@
    * Deployment section
    * http://pm2.keymetrics.io/docs/usage/deployment/
    */
-  deploy : {
-    production : {
-      user : "runner",
-      host : "52.36.39.70",
-      ref  : "origin/master",
-      repo : "git@github.com:jayoharedee/downtime.git",
-      path : "/var/www/downtime",
+  "deploy" : {
+    "production" : {
+      "user" : "runner",
+      "host" : "52.36.39.70",
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:jayoharedee/downtime.git",
+      "path" : "/var/www/downtime",
       "post-deploy" : "npm install ; gulp; pm2 startOrRestart ecosystem.json --env production"
     },
-    dev : {
-      user : "dev",
-      host : "127.0.0.1",
-      ref  : "origin/master",
-      repo : "git@github.com:jayoharedee/downtime.git",
-      path : "/Users/dev/dev/sand/downtime",
+    "dev" : {
+      "user" : "dev",
+      "host" : "127.0.0.1",
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:jayoharedee/downtime.git",
+      "path" : "/Users/dev/dev/sand/downtime",
       "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env dev",
-      env  : {
+      "env"  : {
         NODE_ENV: "dev"
       }
     }
