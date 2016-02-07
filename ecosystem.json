@@ -16,12 +16,6 @@
         NODE_ENV: "production"
       }
     }
-
-    /*// Second application
-    {
-      name      : "WEB",
-      script    : "web.js"
-    }*/
   ],
 
   /**
@@ -33,7 +27,7 @@
       user : "runner",
       host : "52.36.39.70",
       ref  : "origin/master",
-      repo : "git@g201ithub.com:jayoharedee/downtime.git",
+      repo : "git@github.com:jayoharedee/downtime.git",
       path : "/var/www/downtime",
       "post-deploy" : "npm install ; gulp; pm2 startOrRestart ecosystem.json --env production"
     },
