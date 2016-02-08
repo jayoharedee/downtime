@@ -1,24 +1,29 @@
-
 {
-  "apps" : [{
-      "name"      : "downtime",
-      "script"    : "bin/www",
+
+“apps” : [
+    {
+      “name”      : “downtime”,
+      “script”    : “bin/www”,
+      "merge-logs" : true,
       "out_file"  : "out-env.log",
-      "merge_logs" : true,
-      "env": {
-            "NODE_ENV": "production"
-          }
-    }],
-  "deploy" : {
-      "production" : {
-            "user" : "runner",
-            "host" : "52.36.6.215",
-            "ref"  : "origin/master",
-            "repo" : "git@github.com:jayoharedee/downtime.git",
-            "path" : "/var/www/downtime",
-            "env"  : {
-                    "TEST_VARIABLE": "No worries!"
-                  }
-          }
+      “env”: {
+        “COMMON_VARIABLE”: “true”
+      },
+      “env_production” : {
+        “NODE_ENV”: “production”
+      }
     }
+
+],
+
+“deploy” : {
+    “production” : {
+      “user” : “node”,
+      “host” : “52.36.6.215”,
+      “ref”  : “origin/master”,
+      "repo" : "git@github.com:jayoharedee/downtime.git",
+      “path” : “/var/www/downtime”,
+      “post-deploy” : “sudo npm install && sudo pm2 startOrRestart ecosystem.json —env production”
+    }
+  }
 }
