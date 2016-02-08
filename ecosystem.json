@@ -16,7 +16,7 @@
 		"production": {
 			"user": "runner",
 			"host": "52.36.6.215",
-			"ref": "origin / master",
+			"ref": "origin/master",
 			"repo": "git@github.com:jayoharedee/downtime.git",
 			"path": " /var/www/downtime",
 			"post - deploy": "sudo npm install && sudo pm2 startOrRestart ecosystem.json— env production"
