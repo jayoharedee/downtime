@@ -12,7 +12,7 @@
   "deploy" : {
       "production" : {
             "user" : "runner",
-            "host" : "52.36.39.70",
+            "host" : "52.36.6.215",
             "ref"  : "origin/master",
             "repo" : "git@github.com:jayoharedee/downtime.git",
             "path" : "/var/www/downtime",
