@@ -4,7 +4,7 @@
   "description": "alert system for when pages go down",
   "main": "bin/www",
   "scripts": {
-    "start": "npm test && gulp && pm2 start ecosystem.json --env production",
+    "start": "gulp",
     "test": "mocha test"
   },
   "author": "Jordan Morenstein",
