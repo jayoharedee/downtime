@@ -19,7 +19,7 @@
 			"ref": "origin/master",
 			"repo": "git@github.com:jayoharedee/downtime.git",
 			"path": " /var/www/downtime",
-			"post-deploy": "sudo npm install && sudo pm2 startOrRestart ecosystem.json— env production"
+			"post-deploy": "sudo npm install && sudo pm2 startOrRestart ecosystem.json —-env production"
 		}
 	}
 }
